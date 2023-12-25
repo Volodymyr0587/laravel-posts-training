@@ -46,7 +46,13 @@
             </div>
             <div class="text-sm mt-4">
                 <a class="underline text-blue-500 hover:text-blue-300" href="{{ route('index') }}">Back to main page</a>
-                <a class="underline text-red-800 hover:text-blue-300" href="{{ route('post.destroy', $post->id) }}">Delete</a>
+                <form action="{{ route('post.destroy', $post->id) }}" method="POST"
+                    onsubmit="return confirm('{{ __('Are you sure you want to delete the post?') }}');"
+                    class="ml-8">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="underline text-red-800 hover:text-blue-300">Delete</button>
+                </form>
             </div>
         </div>
     </div>
