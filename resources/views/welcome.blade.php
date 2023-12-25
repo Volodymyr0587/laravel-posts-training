@@ -43,6 +43,9 @@
         {{-- Greed for small screen --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
             <h1 class="text-2xl p-4 border border-b-4">{{ __('My Posts') }}</h1>
+            <a href="{{ route('post.create') }}" class="underline ml-4">
+                    Create Post
+                </a>
             @forelse ($posts as $post)
             <div class="bg-white space-y-3 p-4 rounded-lg shadow-orange-300">
                 <div class="flex items-center space-x-2 text-sm">
