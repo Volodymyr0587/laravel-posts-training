@@ -18,17 +18,31 @@
         <input type="text" name="title" id="title"
         class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full"
         placeholder="{{ __("Title") }}"/>
+
+        @error('title')
+          <div class="text-red-500 mt-2 text-sm">
+              {{ $message }}
+          </div>
+        @enderror
       </div>
 
       <div class="col-span-2">
         <textarea cols="30" rows="8" name="body" id="body"
         class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" placeholder="{{ __("Type text here...") }}"></textarea>
+
+        @error('body')
+          <div class="text-red-500 mt-2 text-sm">
+              {{ $message }}
+          </div>
+        @enderror
       </div>
 
       <div class="col-span-2 text-right">
         <button type="submit" class="py-3 px-6 bg-green-500 text-white font-bold w-full sm:w-32">
           Save
         </button>
+        <a class="py-3 px-6 bg-green-500 text-white text-xl font-bold w-full sm:w-32" href="{{ route('index') }}">Cancel</a>
+      </div>
       </div>
 
     </form>

@@ -34,7 +34,7 @@
 
     {{-- Greed for small screen --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
-        <h1 class="text-2xl p-4 border border-b-4">{{ __('Post Detail') }}</h1>
+        <h1 class="text-2xl p-4 border-b-4">{{ __('Post Detail') }}</h1>
         <a class="ml-4" href="{{ route('post.edit', $post->id) }}" class="underline">
                 Edit Post
             </a>
