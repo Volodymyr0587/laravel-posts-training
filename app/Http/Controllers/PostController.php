@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PostCreated;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 
 class PostController extends Controller
@@ -31,6 +33,10 @@ class PostController extends Controller
         ]);
 
         Post::create($data);
+
+        // $userEmail = auth()->user()->email; // need register user
+
+        Mail::to('posts@app.com')->send(new PostCreated());
 
         return redirect()->route('index')->with('message', 'Post created');
     }
