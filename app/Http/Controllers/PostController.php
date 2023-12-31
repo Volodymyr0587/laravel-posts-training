@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\PostCreated;
 use App\Models\Post;
+use App\Mail\PostCreated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Jobs\SendEmailAfterCreatingPostJob;
 
 
 class PostController extends Controller
@@ -36,7 +37,11 @@ class PostController extends Controller
 
         // $userEmail = auth()->user()->email; // need register user
 
-        Mail::to('posts@app.com')->send(new PostCreated());
+        //* WITHOUT QUEUE
+        // Mail::to('posts@app.com')->send(new PostCreated());
+
+        //* QUEUE
+        // dispatch(new SendEmailAfterCreatingPostJob());
 
         return redirect()->route('index')->with('message', 'Post created');
     }
