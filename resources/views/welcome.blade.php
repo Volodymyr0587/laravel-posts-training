@@ -6,6 +6,11 @@
         <div class="overflow-auto hidden md:block">
             <div class="flex justify-between text-2xl p-4 m-4 border-b-4">
                 <h1 class="text-gray-800">{{ __('My Posts') }}</h1>
+
+                <div>
+                    {{ $posts->links() }}
+                </div>
+
                 <a href="{{ route('post.create') }}" class="underline">
                     Create Post
                 </a>
